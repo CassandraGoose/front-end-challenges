@@ -1,8 +1,16 @@
-import { useEffect, useState } from 'react';
-import cartImage from "/assets/images/icon-add-to-cart.svg";
-import { IDessert } from "./interfaces";
+import { useEffect, useState } from "react";
+import DessertItem from "./DessertItem";
+import { IDessert, ICartItem } from "./interfaces";
 
-export default function DessertList({ addToCart }: { addToCart: (dessert: IDessert) => void }) {
+export default function DessertList({
+  addToCart,
+  cartItems,
+  removeFromCart,
+}: {
+  addToCart: (dessert: IDessert) => void;
+  cartItems: ICartItem[];
+  removeFromCart: (dessert: string) => void;
+}) {
   const [desserts, setDesserts] = useState<IDessert[]>([]);
 
   useEffect(() => {
@@ -18,6 +26,11 @@ export default function DessertList({ addToCart }: { addToCart: (dessert: IDesse
     getDesserts();
   }, []);
 
+  function getItemCartQuantity(dessert: IDessert) {
+    const item = cartItems.find((item) => item.name === dessert.name);
+    return item ? item.quantity : 0;
+  }
+
   return (
     <div className="md:w-2/3">
       <h1 className="text-3xl md:text-4xl font-bold">Desserts</h1>
@@ -25,37 +38,13 @@ export default function DessertList({ addToCart }: { addToCart: (dessert: IDesse
         {desserts.length > 0 &&
           desserts.map((dessert) => {
             return (
-              <div key={dessert.name} className="mt-8 md:w-1/3 md:pr-4">
-                <div className="relative flex justify-center">
-                  <img
-                    className="md:hidden w-full h-auto rounded-lg"
-                    src={dessert.image.mobile}
-                    alt={dessert.name}
-                  />
-                  <img
-                    className="md:inline hidden h-auto rounded-lg aspect-square object-cover"
-                    src={dessert.image.desktop}
-                    alt={dessert.name}
-                  />
-                  <button className="flex justify-center items-center border border-main-rose-500 rounded-full py-2 px-6 absolute bg-white -bottom-5 md:text-xs md:py-2 md:px-4" onClick={()=> addToCart(dessert)}>
-                    <img
-                      className="mr-1 md:max-w-4"
-                      src={cartImage}
-                      alt="cart icon"
-                    />
-                    Add to Cart
-                  </button>
-                </div>
-                <div className="pt-8 space-y-1">
-                  <p className="text-sm font-extralight text-main-rose-500">
-                    {dessert.category}
-                  </p>
-                  <p className="font-lg font-medium">{dessert.name}</p>
-                  <p className="font-lg text-primary font-medium">{`$${dessert.price.toFixed(
-                    2
-                  )}`}</p>
-                </div>
-              </div>
+              <DessertItem
+                key={dessert.name}
+                dessert={dessert}
+                cartQuantity={getItemCartQuantity(dessert)}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+              />
             );
           })}
       </div>

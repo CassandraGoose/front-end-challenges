@@ -23,9 +23,9 @@ function App() {
     else setCart([...updatedCart, { name: dessert.name, quantity: 1, price: dessert.price }]);
   }
 
-  function removeFromCart(dessert: ICartItem) {
+  function removeFromCart(dessert: string) {
     const updatedCart = cart.filter((item) => {
-      if (item.name === dessert.name) {
+      if (item.name === dessert) {
         item.quantity -= 1;
       }
       return item.quantity > 0;
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <main className="p-4 md:p-12 md:px-16 md:flex">
-      <DessertList addToCart={addToCart}/>
+      <DessertList addToCart={addToCart} cartItems={cart} removeFromCart={removeFromCart} />
       <Cart cartItems={cart} removeFromCart={removeFromCart} />
     </main>
   );

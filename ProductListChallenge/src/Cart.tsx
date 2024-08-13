@@ -8,7 +8,7 @@ export default function Cart({
   removeFromCart,
 }: {
   cartItems: ICartItem[];
-  removeFromCart: (dessert: ICartItem) => void;
+  removeFromCart: (dessert: string) => void;
 }) {
   function getTotalCartLength() {
     return cartItems.reduce((acc, item) => {
@@ -51,7 +51,7 @@ export default function Cart({
                     </p>
                   </div>
                 </div>
-                <button className="rounded-full border border-main-rose-300 self-center p-[2px]" onClick={() => removeFromCart(item)}>
+                <button className="rounded-full border border-main-rose-300 self-center p-[2px]" onClick={() => removeFromCart(item.name)}>
                   <img src={removeItemImage} alt="remove item" />
                 </button>
               </div>
