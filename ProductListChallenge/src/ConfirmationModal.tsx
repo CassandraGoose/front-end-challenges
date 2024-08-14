@@ -13,9 +13,9 @@ export default function ConfirmationModal({
   return (
     <div
       style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-      className="absolute top-0 right-0 w-full h-full flex justify-center items-center"
+      className="fixed bottom-0 md:top-0 right-0 w-full h-full flex md:justify-center md:items-center items-end"
     >
-      <div className="relative flex flex-col bg-white rounded-lg p-6 space-y-4">
+      <div className="relative flex flex-col bg-white md:rounded-lg rounded-t-lg p-6 space-y-4">
         <img
           className="self-start w-1/12"
           src={orderConfirmedImage}
