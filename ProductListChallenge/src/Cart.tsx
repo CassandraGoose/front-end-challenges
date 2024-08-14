@@ -69,7 +69,7 @@ export default function Cart({
               delivery
             </p>
           </div>
-          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white">
+          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white active:brightness-75">
             Confirm Order
           </button>
         </>
