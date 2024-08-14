@@ -19,7 +19,6 @@ export default function DessertList({
       if (!res.ok || res.status !== 200)
         throw new Error("Failed to fetch desserts");
       const desserts = await res.json();
-      console.log("desserts", desserts);
       setDesserts(desserts);
     };
 

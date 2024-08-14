@@ -1,14 +1,16 @@
-import { ICartItem } from "./interfaces";
 import emptyCartImage from "/assets/images/illustration-empty-cart.svg";
 import removeItemImage from "/assets/images/icon-remove-item.svg";
 import carbonImage from "/assets/images/icon-carbon-neutral.svg";
+import { ICartItem } from "./interfaces";
 
 export default function Cart({
   cartItems,
   removeFromCart,
+  initiateModal,
 }: {
   cartItems: ICartItem[];
   removeFromCart: (dessert: string) => void;
+  initiateModal: (cartTotal: number) => void;
 }) {
   function getTotalCartLength() {
     return cartItems.reduce((acc, item) => {
@@ -69,7 +71,7 @@ export default function Cart({
               delivery
             </p>
           </div>
-          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white active:brightness-75">
+          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white active:brightness-75" onClick={() => initiateModal(getTotal())}>
             Confirm Order
           </button>
         </>
