@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import emptyCartImage from "/assets/images/illustration-empty-cart.svg";
 import removeItemImage from "/assets/images/icon-remove-item.svg";
 import carbonImage from "/assets/images/icon-carbon-neutral.svg";
@@ -12,23 +13,24 @@ export default function Cart({
   removeFromCart: (dessert: string) => void;
   initiateModal: (cartTotal: number) => void;
 }) {
-  function getTotalCartLength() {
+
+  const getTotalCartLength = useMemo(() => {
     return cartItems.reduce((acc, item) => {
       return (acc += item.quantity);
     }, 0);
-  }
+  }, [cartItems]);
 
-  function getTotal() {
+  const getTotal = useMemo(() => {
     return cartItems.reduce((acc, item) => {
       acc += item.quantity * item.price;
       return acc;
     }, 0);
-  }
+  }, [cartItems]);
 
   return (
     <div className="bg-white rounded-lg p-4 flex flex-col justify-center items-center md:w-1/3 md:h-min">
       <h2 className="text-2xl font-bold text-primary self-start">
-        Your Cart ({getTotalCartLength()})
+        Your Cart ({getTotalCartLength})
       </h2>
       {cartItems.length === 0 ? (<>
         <img className="py-4" src={emptyCartImage} alt="dessert icon for cart" />
@@ -62,7 +64,7 @@ export default function Cart({
           ))}
           <div className="flex justify-between w-full py-4 items-center">
             <p>Order Total</p>
-            <p className="text-xl font-bold">${getTotal().toFixed(2)}</p>
+            <p className="text-xl font-bold">${getTotal.toFixed(2)}</p>
           </div>
           <div className="rounded-md bg-main-rose-100 w-full flex justify-evenly items-center p-4 mt-2">
             <img src={carbonImage} alt="carbon image" />
@@ -71,7 +73,7 @@ export default function Cart({
               delivery
             </p>
           </div>
-          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white active:brightness-75" onClick={() => initiateModal(getTotal())}>
+          <button className="bg-primary p-4 mt-6 mb-2 rounded-full w-full text-white active:brightness-75" onClick={() => initiateModal(getTotal)}>
             Confirm Order
           </button>
         </>

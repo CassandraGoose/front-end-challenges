@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import DessertList from "./DessertList";
 import Cart from "./Cart";
 import ConfirmationModal from "./ConfirmationModal";
@@ -9,7 +9,8 @@ function App() {
   const [cart, setCart] = useState<ICartItem[]>([]);
   const [cartTotal, setCartTotal] = useState(0);
 
-  function addToCart(dessert: IDessert) {
+  // since app will rerender so much due to the cart, i don't want these functions to be recreated every time.
+  const addToCart = useCallback((dessert: IDessert) => {
     // we loop regardless, but only loop once if found so this is my vote:
     let updatedIndex = -1;
     const updatedCart = cart.map((item, i) => {
@@ -32,9 +33,9 @@ function App() {
           thumbnail: dessert.image.thumbnail,
         },
       ]);
-  }
+  }, [cart]);
 
-  function removeFromCart(dessert: string) {
+  const removeFromCart = useCallback((dessert: string) => {
     const updatedCart = cart.filter((item) => {
       if (item.name === dessert) {
         item.quantity -= 1;
@@ -43,17 +44,17 @@ function App() {
     });
 
     setCart(updatedCart);
-  }
+  }, [cart])
 
-  function initiateModal(cartTotal: number) {
+  const initiateModal = useCallback((cartTotal: number) => {
     setCartTotal(cartTotal);
     setShowModal(true);
-  }
+  }, []);
 
-  function startNewOrder() {
+  const startNewOrder = useCallback(() => {
     setShowModal(false);
     setCart([]);
-  }
+  }, []);
 
   return (
     <main className="p-4 md:p-12 md:px-16 md:flex">

@@ -13,6 +13,8 @@ export default function DessertList({
 }) {
   const [desserts, setDesserts] = useState<IDessert[]>([]);
 
+  // IRL, I'd want to use something like Tanstack-query to get free caching, background updates, etc. 
+  // it's free real estate.
   useEffect(() => {
     const getDesserts = async () => {
       const res = await fetch("/data.json");
