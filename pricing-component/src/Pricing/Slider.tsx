@@ -5,7 +5,7 @@ export default function Slider() {
   const [sliderWidth, setSliderWidth] = useState(45);
 
   return (
-    <div className="w-full flex justify-center items-center h-12">
+    <div className="w-full flex justify-center items-center">
       <div className="relative bg-primary w-5/6 rounded-full h-2 flex items-center justify-center">
         <div
           className="absolute bg-secondary rounded-full h-2 left-0"
