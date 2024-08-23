@@ -5,7 +5,7 @@ const subscriptionInfoText = ['Unlimited websites', '100% data ownership', 'Emai
 export default function Card() {
 
   return (
-    <div className="flex flex-col justify-center items-center bg-[white] rounded-lg py-4 w-5/6 shadow-xl shadow-light-grayish-blue space-y-4">
+    <div className="flex flex-col justify-center items-center bg-[white] rounded-lg py-8 w-11/12 shadow-xl shadow-light-grayish-blue space-y-4">
       <p className="uppercase">100k pageviews</p>
       <Slider />
       <p>
@@ -14,13 +14,13 @@ export default function Card() {
         </span>{" "}
         / month
       </p>
-      <label className="flex items-center justify-between w-5/6">
-        <span>monthly billing </span>
+      <label className="flex items-center justify-between w-3/4 py-6">
+        <span>Monthly billing</span>
         <input type="checkbox" value="" className="sr-only peer" />
-        <div className="relative w-11 h-6 bg-less-light-grayish-blue rounded-full peer peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
+        <div className="relative w-11 h-6 bg-less-light-grayish-blue rounded-full peer peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:bg-[white] after:border-2 after:border-less-light-grayish-blue after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
         <span>
           Yearly Billing
-          <span className="rounded-full p-1 text-[0.5rem] font-semibold bg-light-grayish-red text-light-red">
+          <span className="absolute right-5 rounded-full px-1 text-[0.6rem] font-semibold bg-light-grayish-red text-light-red">
             -25%
           </span>
         </span>
@@ -34,7 +34,7 @@ export default function Card() {
           );
         })}
       </div>
-      <button className="bg-dark-desaturated-blue rounded-full py-2 w-1/2 font-semibold text-less-light-grayish-blue">
+      <button className="bg-dark-desaturated-blue rounded-full py-2 w-1/2 font-semibold text-less-light-grayish-blue my-6">
         Start my trial
       </button>
     </div>
