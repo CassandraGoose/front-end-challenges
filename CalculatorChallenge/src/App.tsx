@@ -5,9 +5,9 @@ import Output from './components/Output';
 function App() {
 
   return (
-    <div className="w-full h-screen bg-very-dark-desaturated-blue text-white md:text-xl font-bold p-4">
+    <div className="w-full h-screen bg-very-dark-desaturated-blue text-white md:text-xl font-bold p-4 space-y-4">
     <Heading />
-    <main>
+    <main className="flex flex-col justify-center items-center space-y-4 w-full">
       <Output />
       <Numpad />
     </main>

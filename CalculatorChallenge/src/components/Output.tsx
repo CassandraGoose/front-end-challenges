@@ -1,3 +1,7 @@
 export default function Output() {
-  return (<>hello</>)
+  return (
+    <div className="bg-very-dark-desaturated-blue-screen rounded-md p-2 px-4 flex justify-end items-center w-full">
+      <p>399,981</p>
+    </div>
+  );
 }
