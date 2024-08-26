@@ -1,5 +1,4 @@
 import { useState } from "react";
-import iconSlider from "../assets/icon-slider.svg";
 
 const sliderValues: {
   [key: number]: { price: number; pageViews: string; sliderValue: number };

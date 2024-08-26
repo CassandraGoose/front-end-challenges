@@ -1,5 +1,6 @@
 import Slider from "./Slider";
 import SubscriptioninfoItem from "./SubscriptionInfoItem";
+import BillingToggle from './BillingToggle';
 const subscriptionInfoText = ['Unlimited websites', '100% data ownership', 'Email reports'];
 
 export default function Card() {
@@ -14,17 +15,7 @@ export default function Card() {
         </span>{" "}
         / month
       </p>
-      <label className="flex items-center justify-between w-3/4">
-        <span>Monthly billing</span>
-        <input type="checkbox" value="" className="sr-only peer" />
-        <div className="relative w-11 h-6 bg-less-light-grayish-blue rounded-full peer peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:bg-[white] after:border-2 after:border-less-light-grayish-blue after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
-        <span>
-          Yearly Billing
-          <span className="absolute right-5 rounded-full px-1 text-[0.6rem] font-semibold bg-light-grayish-red text-light-red">
-            -25%
-          </span>
-        </span>
-      </label>
+      <BillingToggle />
 
       <hr className="border-t border-1 border-light-grayish-blue w-full" />
 
