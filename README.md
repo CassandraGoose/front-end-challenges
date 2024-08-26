@@ -14,3 +14,5 @@ Check out Frontend Mentor [here](https://www.frontendmentor.io).
 
 - [Product List With Cart Solution](https://product-list-challenge-o3ww7rdwn-cassandratorskes-projects.vercel.app/)
   - [Product List With Cart Challenge Description](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d)
+- [Pricing Component Solution](https://pricing-component-challenge-ffkjltujk-cassandratorskes-projects.vercel.app/)
+  - [Pricing Component Challenge Description](https://www.frontendmentor.io/challenges/interactive-pricing-component-t0m8PIyY8)
