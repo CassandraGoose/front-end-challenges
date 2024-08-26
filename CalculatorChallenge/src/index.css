@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  --toggle-background-color: hsl(223, 31%, 20%);
+  --toggle-button-color: hsl(6, 63%, 50%);
+}
+
+.custom-slider {
+  -webkit-appearance: none;
+  appearance: none; 
+  cursor: pointer;
+  outline: none;
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  background: var(--toggle-background-color);
+}
+
+.custom-slider::-webkit-slider-runnable-track,
+.custom-slider::-moz-range-track {
+  height: 0.8rem;
+  border-radius: 0.25rem;
+}
+
+/* can't combine the below selectors because chrome will ignore it. */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--toggle-button-color);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0.125rem solid var(--toggle-background-color);
+  border-radius: 50%;
+  height: 0.5rem;
+  width: 0.5rem;
+  transform: translate(0, -25%);
+}
+
+.custom-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--toggle-button-color);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0.125rem solid var(--toggle-background-color);
+  border-radius: 50%;
+  height: 0.5rem;
+  width: 0.5rem;
+}
