@@ -1,46 +1,20 @@
 import { useState } from "react";
+import { ISliderValue, ISliderValues } from "../interfaces";
 
-const sliderValues: {
-  [key: number]: { price: number; pageViews: string; sliderValue: number };
-} = {
-  0: {
-    price: 0,
-    pageViews: "Please select amount of page views",
-    sliderValue: 0,
-  },
-  1: {
-    price: 8,
-    pageViews: "10k",
-    sliderValue: 20,
-  },
-  2: {
-    price: 12,
-    pageViews: "50k",
-    sliderValue: 40,
-  },
-  3: {
-    price: 16,
-    pageViews: "100k",
-    sliderValue: 60,
-  },
-  4: {
-    price: 24,
-    pageViews: "500k",
-    sliderValue: 80,
-  },
-  5: {
-    price: 36,
-    pageViews: "1m",
-    sliderValue: 100,
-  },
-};
-
-export default function Slider() {
-  const [sliderWidth, setSliderWidth] = useState(45);
+export default function Slider({
+  sliderValues,
+  setCurrentSliderValue,
+  sliderWidth,
+}: {
+  sliderValues: ISliderValues;
+  setCurrentSliderValue: React.Dispatch<React.SetStateAction<ISliderValue>>;
+  sliderWidth: number;
+}) {
   const [mouseDownThumb, setMouseDownThumb] = useState(false);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSliderWidth(sliderValues[parseInt(e.target.value)].sliderValue);
+    const currentSliderValue = sliderValues[parseInt(e.target.value)];
+    setCurrentSliderValue(currentSliderValue);
   };
 
   return (
@@ -54,9 +28,9 @@ export default function Slider() {
         onChange={handleSliderChange}
         onMouseDown={() => setMouseDownThumb(true)}
         onMouseUp={() => setMouseDownThumb(false)}
-        step="1"
+        step="25"
         min="0"
-        max="5"
+        max="100"
         style={{
           background: `linear-gradient(
             to right,
@@ -69,18 +43,11 @@ export default function Slider() {
       />
 
       <datalist id="pageview-values">
-        <option
-          className="hidden"
-          value="0"
-          label="Please select amount of page views
-      "
-          disabled
-        />
-        <option className="hidden" value="1" label="10k" />
-        <option className="hidden" value="2" label="50k" />
-        <option className="hidden" value="3" label="100k" />
-        <option className="hidden" value="4" label="500k" />
-        <option className="hidden" value="5" label="1m" />
+        <option className="hidden" value="0" label="10k" />
+        <option className="hidden" value="25" label="50k" />
+        <option className="hidden" value="50" label="100k" />
+        <option className="hidden" value="75" label="500k" />
+        <option className="hidden" value="100" label="1m" />
       </datalist>
     </div>
   );

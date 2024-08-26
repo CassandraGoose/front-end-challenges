@@ -1,4 +1,4 @@
-import iconCheck from '../assets/icon-check.svg';
+import iconCheck from "../assets/icon-check.svg";
 
 export default function SubscriptionInfoItem({ text }: { text: string }) {
   return (
