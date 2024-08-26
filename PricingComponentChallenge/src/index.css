@@ -37,6 +37,7 @@ body {
 }
 
 .custom-slider {
+  -webkit-appearance: none;
   appearance: none; 
   cursor: pointer;
   outline: none;
@@ -49,8 +50,23 @@ body {
   height: 0.5rem;
   border-radius: 0.25rem;
 }
+/* hey the following two selections cannot actually be combined. for some reason, chrome just ignores the styles if they are combined. */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url(./assets/icon-slider.svg);
+  background-color: hsl(174, 86%, 45%);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0.125rem solid hsl(174, 86%, 45%);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  box-shadow: 0 25px 30px -5px hsl(174, 86%, 70%), 0 10px 15px -5px hsl(174, 86%, 70%);
+  transform: translate(0, -25%);
+}
 
-.custom-slider::-webkit-slider-thumb,
 .custom-slider::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -65,8 +81,13 @@ body {
   width: 2rem;
   box-shadow: 0 25px 30px -5px hsl(174, 86%, 70%), 0 10px 15px -5px hsl(174, 86%, 70%);
 }
-
+/* hey the following two selections cannot actually be combined. for some reason, chrome just ignores the styles if they are combined. */
 .thumbActive::-moz-range-thumb {
+  background-color: hsl(174, 77%, 80%);
+  border: 0.125rem solid hsl(174, 77%, 80%);
+}
+
+.thumbActive::-webkit-slider-thumb {
   background-color: hsl(174, 77%, 80%);
   border: 0.125rem solid hsl(174, 77%, 80%);
 }
