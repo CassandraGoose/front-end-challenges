@@ -1,4 +1,3 @@
-import "./App.css";
 import Heading from './Pricing/Heading';
 import Card from './Pricing/Card';
 

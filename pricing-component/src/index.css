@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 body {
-  background-color: hsl(230, 100%, 99%);
+  background-image: url(./assets/bg-pattern.svg);
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background-size: contain;
+  }
 }
 
 :root {
