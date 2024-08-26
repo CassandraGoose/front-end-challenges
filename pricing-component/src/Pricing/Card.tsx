@@ -2,6 +2,7 @@ import { useState } from "react";
 import Slider from "./Slider";
 import SubscriptioninfoItem from "./SubscriptionInfoItem";
 import BillingToggle from "./BillingToggle";
+import PricePerMonth from "./PricePerMonth";
 import { ISliderValues, ISliderValue } from "../interfaces";
 
 const subscriptionInfoText = [
@@ -42,25 +43,46 @@ export default function Card() {
   const [currentSliderValue, setCurrentSliderValue] = useState<ISliderValue>(
     sliderValues[50]
   );
+  const [yearlyBillingSelected, setYearlyBillingSelected] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center items-center bg-[white] rounded-lg py-8 w-11/12 shadow-xl shadow-light-grayish-blue space-y-8">
-      <p className="uppercase">{currentSliderValue.pageViews} Pageviews</p>
+    <div className="flex flex-col justify-center items-center bg-[white] rounded-lg py-8 w-11/12 shadow-xl shadow-light-grayish-blue space-y-8 md:space-y-12">
+      <div className="flex md:justify-between justify-center w-5/6">
+        <p className="uppercase">{currentSliderValue.pageViews} Pageviews</p>
+        <div className="hidden md:block">
+          <PricePerMonth
+            yearlyBillingSelected={yearlyBillingSelected}
+            currentSliderValue={currentSliderValue}
+          />
+        </div>
+      </div>
       <Slider
         sliderWidth={currentSliderValue.value}
         sliderValues={sliderValues}
         setCurrentSliderValue={setCurrentSliderValue}
       />
-      <BillingToggle currentSliderValue={currentSliderValue} />
-      <hr className="border-t border-1 border-light-grayish-blue w-full" />
-      <div className="flex flex-col w-5/6 space-y-2">
-        {subscriptionInfoText.map((text) => {
-          return <SubscriptioninfoItem key={text} text={text} />;
-        })}
+      <div className="md:hidden">
+        <PricePerMonth
+          yearlyBillingSelected={yearlyBillingSelected}
+          currentSliderValue={currentSliderValue}
+        />
       </div>
-      <button className="bg-dark-desaturated-blue rounded-full py-2 w-1/2 font-semibold text-less-light-grayish-blue hover:text-white">
-        Start my trial
-      </button>
+
+      <BillingToggle
+        setYearlyBillingSelected={setYearlyBillingSelected}
+        yearlyBillingSelected={yearlyBillingSelected}
+      />
+      <hr className="border-t border-1 border-light-grayish-blue w-full" />
+      <div className="flex flex-col md:flex-row md:justify-between items-center w-5/6 space-y-6">
+        <div className="flex flex-col w-5/6 space-y-2">
+          {subscriptionInfoText.map((text) => {
+            return <SubscriptioninfoItem key={text} text={text} />;
+          })}
+        </div>
+        <button className="bg-dark-desaturated-blue rounded-full py-4 w-3/4 md:w-1/2 font-semibold text-less-light-grayish-blue hover:text-white">
+          Start my trial
+        </button>
+      </div>
     </div>
   );
 }
