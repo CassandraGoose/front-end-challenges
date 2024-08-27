@@ -1,13 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'League Spartan', sans-serif;
   font-size: 32px;
   --toggle-background-color: hsl(223, 31%, 20%);
   --toggle-button-color: hsl(6, 63%, 50%);
+}
+
+@layer base {
+  @font-face {
+    font-family: "League Spartan";
+    font-style: normal;
+    font-weight: 700;
+    src: url(./assets/LeagueSpartan-SemiBold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "League Spartan";
+    font-style: normal;
+    font-weight: 500;
+    src: url(./assets/LeagueSpartan-Medium.ttf) format("truetype");
+  }
 }
 
 .custom-slider {

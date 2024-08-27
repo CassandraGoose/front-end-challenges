@@ -20,11 +20,15 @@ export default {
     },
     fontSize: {
       xs: '0.4rem',
+      ssm: '0.6rem',
       sm: '0.8rem',
       base: '1rem',
       xl: '2rem',
       '2xl': '2.25rem',
       '3xl': '2.5rem',
+    },
+    fontFamily: {
+      'league-spartan': ['"League Spartan"', 'sans-serif'],
     },
     extend: {},
   },
