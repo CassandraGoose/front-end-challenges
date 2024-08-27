@@ -5,6 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'sm-md': '641px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     colors: {
       'very-dark-desaturated-blue': 'hsl(222, 26%, 31%)',
       'very-dark-desaturated-blue-keypad': 'hsl(223, 31%, 20%)',

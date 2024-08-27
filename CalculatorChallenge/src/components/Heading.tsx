@@ -2,9 +2,9 @@ export default function Heading() {
   return (
     <div className="flex justify-between items-center">
       <h1>calc</h1>
-      <div className="flex justify-between items-end space-x-2 text-xs font-medium w-5/12">
+      <div className="flex justify-between items-end space-x-2 text-xs font-medium w-5/12 md:w-1/3">
         <p className="uppercase">Theme</p>
-        <div className="flex flex-col justify-center items-center w-2/3">
+        <div className="flex flex-col justify-center items-center w-2/3 min-w-6 max-w-8">
           <label
             htmlFor="theme-options"
             className="w-5/6 flex justify-between items-center"
